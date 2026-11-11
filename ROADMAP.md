@@ -13,6 +13,8 @@ A implementação está nas branches `dev/fase-1-fundacao` de frontend e backend
 - Dashboard do lojista com KPIs reais e personalização básica de cores/texto.
 - ADM Vitruna global: CRUD inicial de planos, módulos, empresas, assinatura e recebimentos **manuais**.
 - Testes de bloqueio por vencimento, suspensão, autorização global e isolamento entre lojas.
+- **Aplicação efetiva do módulo `catalog`** no backend, tanto nas operações do lojista quanto na vitrine pública; módulos de outros recursos continuam pendentes.
+- Edição manual dos módulos incluídos em planos, com alterações que afetam imediatamente as lojas assinantes.
 - Documentação de manutenção e comentários nos arquivos mais importantes do sistema.
 
 ## Sem homologação / pendente
@@ -20,7 +22,7 @@ A implementação está nas branches `dev/fase-1-fundacao` de frontend e backend
 - Configuração e testes reais de SMTP, bucket e CDN.
 - RLS no banco, role de execução restrita e política robusta de isolamento.
 - MFA, auditoria das ações financeiras, convite de lojistas e gestão de operadores SaaS.
-- Permissões granulares de funcionários e **enforcement de módulos contratados**.
+- Permissões granulares de funcionários e enforcement dos próximos módulos além de catálogo.
 - Testes ponta a ponta no navegador em ambiente completo com múltiplas empresas.
 - Baixa de estoque auditada, pedidos internos confirmados, conciliação e reversão de pagamentos manuais.
 - Upload de logotipos e banners, personalização avançada, contraste e acessibilidade.
