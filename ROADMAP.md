@@ -1,35 +1,44 @@
-# Roadmap Vitruna
+# Vitruna — situação técnica e roadmap
 
-## Fase 1 — fundação (em andamento)
-1. Criar repositórios e branches separadas (**feito**).
-2. Código inicial NestJS, Prisma, PostgreSQL e endpoints de conta/loja (**feito, não homologado**).
-3. Base Next.js com landing, login/cadastro e dashboards iniciais (**feito, não homologado**).
-4. Instalar dependências, gerar e executar migrações, realizar builds e testes (**pendente**).
-5. E-mail transacional, onboarding seguro, recuperação de senha, ajustes de UX e CI (**pendente**).
-6. RLS e testes cross-tenant com PostgreSQL real (**pendente**).
-7. Abrir PRs após resultados de qualidade (**pendente**).
+A implementação está nas branches `dev/fase-1-fundacao` de frontend e backend. A `main` não é alterada até a revisão dos pull requests. **Código existente não significa produção homologada.**
 
-## Fase 2 — catálogo no painel do lojista
-CRUD de produtos, categorias, imagens e variantes de tamanho/cor. Regras de estoque por variante, auditoria e permissões.
+## Entregue no código e em testes automatizados
 
-## Fase 3 — vitrine pública
-Rotas por slug, página de produto, categorias, pesquisa/filtros, carrinho e solicitação de atendimento pelo WhatsApp. UX responsiva e SEO.
+- API NestJS + PostgreSQL/Prisma, migrações versionadas, autenticação por sessão HttpOnly e confirmação/recuperação via tokens.
+- Landing page responsiva, cadastro e login dos administradores.
+- Vitrine pública por slug, sem login do consumidor, catálogo, variantes, busca, filtros e carrinho local por loja.
+- Mensagem de WhatsApp com carrinho e total estimado; sem pagamento ou registro automático de pedido.
+- Painel do proprietário: produtos, estoque por SKU, fotografias, galeria e configuração de WhatsApp.
+- Upload seguro de JPG/PNG/WebP para storage compatível com S3, **dependente de credenciais externas**.
+- Dashboard do lojista com KPIs reais e personalização básica de cores/texto.
+- ADM Vitruna global: CRUD inicial de planos, módulos, empresas, assinatura e recebimentos **manuais**.
+- Testes de bloqueio por vencimento, suspensão, autorização global e isolamento entre lojas.
+- Documentação de manutenção e comentários nos arquivos mais importantes do sistema.
 
-## Fase 4 — pedidos e estoque
-Solicitações, status, histórico, atualização de estoque idempotente e indicadores operacionais reais.
+## Sem homologação / pendente
 
-## Fase 5 — gestão SaaS
-Superadmin completo, lojas, planos, assinaturas, cobrança recorrente, bloqueios e relatórios.
+- Configuração e testes reais de SMTP, bucket e CDN.
+- RLS no banco, role de execução restrita e política robusta de isolamento.
+- MFA, auditoria das ações financeiras, convite de lojistas e gestão de operadores SaaS.
+- Permissões granulares de funcionários e **enforcement de módulos contratados**.
+- Testes ponta a ponta no navegador em ambiente completo com múltiplas empresas.
+- Baixa de estoque auditada, pedidos internos confirmados, conciliação e reversão de pagamentos manuais.
+- Upload de logotipos e banners, personalização avançada, contraste e acessibilidade.
+- Limitação comercial/planos aprovada pelo proprietário da plataforma.
+- Deploy, backups, monitoramento, LGPD, termos e privacidade.
 
-## Fase 6 — preparação comercial
-Testes funcionais e segurança, backups, monitoramento, políticas de privacidade, homologação com 3 lojas piloto e deploy.
+## Regras de identidade
 
-## Aceite da Fase 1
-- Backend e frontend instalam e constroem sem falha.
-- Banco sobe no Docker e migrations funcionam.
-- Cadastro -> verificação -> login -> sessão -> logout validado.
-- Loja A não consulta os dados privados da Loja B, testado em E2E.
-- Conta comum recebe 403 em `/admin/summary`.
-- Cookies, Origin e expiração de sessão testados.
-- Não há segredos comitados nem dados simulados apresentados como dados reais.
-- Nenhuma mudança de desenvolvimento foi feita diretamente na main.
+| Área | Banco | Pode acessar |
+|---|---|---|
+| ADM Vitruna | User.platformRole=SUPERADMIN | todas as empresas, planos, módulos e financeiro manual |
+| Superadmin da loja | StoreMember.role=OWNER | somente sua própria loja |
+| Equipe da loja | StoreMember.role=MANAGER/ATTENDANT | permissões restritas, ainda a detalhar |
+| Consumidor | sem usuário | catálogo e carrinho sem autenticação |
+
+## Qualidade e aceitação
+
+- Migrations aplicáveis e builds no GitHub Actions.
+- Testes unitários e PostgreSQL reais para isolamento de tenants.
+- Homologação pelo navegador e revisão de segurança **ainda necessárias**.
+- Não publicar credenciais nem ativar produção sem revisão de segurança.

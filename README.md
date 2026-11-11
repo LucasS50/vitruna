@@ -7,11 +7,12 @@ Repositórios do projeto:
 - [vitruna-frontend](https://github.com/LucasS50/vitruna-frontend) — Next.js, React e TypeScript (privado)
 - [vitruna-docs](https://github.com/LucasS50/vitruna-docs) — especificações e decisões de arquitetura
 
-**Fase atual: 1 — Fundação.** Código inicial publicado nas branches `dev/fase-1-fundacao` de backend e frontend. Não homologado, não pronto para produção.
+**Estado: desenvolvimento ativo, sem homologação comercial.** Código publicado nas branches `dev/fase-1-fundacao` de backend e frontend. Não homologado, não pronto para produção.
 
 Documentos:
 - [Arquitetura](ARCHITECTURE.md)
 - [Segurança](SECURITY.md)
 - [Roadmap e aceite](ROADMAP.md)
+- [Mapa de manutenção do código](CODE_MAINTENANCE.md)
 
 > Este repositório é público atualmente. Não inclua segredos, credenciais, dados pessoais ou detalhes operacionais confidenciais.
