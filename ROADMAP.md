@@ -14,7 +14,9 @@ A implementação está nas branches `dev/fase-1-fundacao` de frontend e backend
 - Cadastro de funcionários, perfis de gerente/atendente e permissões de catálogo/estoque aplicadas na API, com desativação de acesso por loja.
 - Convites por e-mail com expiração de 48 horas, cancelamento, aceite de conta existente e cadastro de funcionário novo sem criar loja; exige SMTP configurado.
 - ADM Vitruna global: CRUD inicial de planos, módulos, empresas, assinatura e recebimentos **manuais**.
-- Contratação interna com protocolo, intenção vinculada ao lojista verificado, fila comercial separada, atendimento pelo WhatsApp e confirmação manual de pagamento sem publicação automática.
+- Contratação e renovação interna com protocolo, solicitação vinculada ao lojista verificado, fila comercial, atendimento via WhatsApp e confirmação manual sem publicação automática.
+- Exclusividade de solicitação aberta por loja garantida no PostgreSQL (índice parcial) e primeiros eventos de auditoria de finanças no ADM.
+- Publicação pública exige período pago ou carência válida, mesmo que exista vencimento futuro cadastrado.
 - Testes de bloqueio por vencimento, suspensão, autorização global e isolamento entre lojas.
 - **Aplicação efetiva do módulo `catalog`** no backend, tanto nas operações do lojista quanto na vitrine pública; módulos de outros recursos continuam pendentes.
 - Edição manual dos módulos incluídos em planos, com alterações que afetam imediatamente as lojas assinantes.
@@ -24,7 +26,7 @@ A implementação está nas branches `dev/fase-1-fundacao` de frontend e backend
 
 - Configuração e testes reais de SMTP, bucket e CDN.
 - RLS no banco, role de execução restrita e política robusta de isolamento.
-- MFA, auditoria das ações financeiras, convite de lojistas e gestão de operadores SaaS.
+- MFA, auditoria ampla das ações administrativas (auditoria financeira inicial entregue), convite de lojistas e gestão de operadores SaaS.
 - Auditoria de convites/permissões, proteção contra abuso distribuído e enforcement dos próximos módulos além de catálogo.
 - Testes ponta a ponta no navegador em ambiente completo com múltiplas empresas.
 - Baixa de estoque auditada, pedidos internos confirmados, conciliação e reversão de pagamentos manuais.
@@ -47,3 +49,6 @@ A implementação está nas branches `dev/fase-1-fundacao` de frontend e backend
 - Testes unitários e PostgreSQL reais para isolamento de tenants.
 - Homologação pelo navegador e revisão de segurança **ainda necessárias**.
 - Não publicar credenciais nem ativar produção sem revisão de segurança.
+
+## Critério de encerramento
+Consulte [o roteiro de release no backend](https://github.com/LucasS50/vitruna-backend/blob/dev/fase-1-fundacao/docs/RELEASE_READINESS.md). Builds de GitHub Actions não substituem SMTP, storage, navegador real, HTTPS, backups, RLS e MFA validados no ambiente de produção.
