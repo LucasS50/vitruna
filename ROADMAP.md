@@ -14,6 +14,7 @@ A implementação está nas branches `dev/fase-1-fundacao` de frontend e backend
 - Cadastro de funcionários, perfis de gerente/atendente e permissões de catálogo/estoque aplicadas na API, com desativação de acesso por loja.
 - Convites por e-mail com expiração de 48 horas, cancelamento, aceite de conta existente e cadastro de funcionário novo sem criar loja; exige SMTP configurado.
 - ADM Vitruna global: CRUD inicial de planos, módulos, empresas, assinatura e recebimentos **manuais**.
+- Contratação interna com protocolo, intenção vinculada ao lojista verificado, fila comercial separada, atendimento pelo WhatsApp e confirmação manual de pagamento sem publicação automática.
 - Testes de bloqueio por vencimento, suspensão, autorização global e isolamento entre lojas.
 - **Aplicação efetiva do módulo `catalog`** no backend, tanto nas operações do lojista quanto na vitrine pública; módulos de outros recursos continuam pendentes.
 - Edição manual dos módulos incluídos em planos, com alterações que afetam imediatamente as lojas assinantes.
