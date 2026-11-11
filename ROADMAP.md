@@ -11,7 +11,8 @@ A implementação está nas branches `dev/fase-1-fundacao` de frontend e backend
 - Painel do proprietário: produtos, estoque por SKU, fotografias, galeria e configuração de WhatsApp.
 - Upload seguro de JPG/PNG/WebP para storage compatível com S3, **dependente de credenciais externas**.
 - Dashboard do lojista com KPIs reais e personalização básica de cores/texto.
-- Cadastro de funcionários existentes e verificados, perfis de gerente/atendente e permissões de catálogo/estoque aplicadas na API, com desativação de acesso por loja.
+- Cadastro de funcionários, perfis de gerente/atendente e permissões de catálogo/estoque aplicadas na API, com desativação de acesso por loja.
+- Convites por e-mail com expiração de 48 horas, cancelamento, aceite de conta existente e cadastro de funcionário novo sem criar loja; exige SMTP configurado.
 - ADM Vitruna global: CRUD inicial de planos, módulos, empresas, assinatura e recebimentos **manuais**.
 - Testes de bloqueio por vencimento, suspensão, autorização global e isolamento entre lojas.
 - **Aplicação efetiva do módulo `catalog`** no backend, tanto nas operações do lojista quanto na vitrine pública; módulos de outros recursos continuam pendentes.
@@ -23,7 +24,7 @@ A implementação está nas branches `dev/fase-1-fundacao` de frontend e backend
 - Configuração e testes reais de SMTP, bucket e CDN.
 - RLS no banco, role de execução restrita e política robusta de isolamento.
 - MFA, auditoria das ações financeiras, convite de lojistas e gestão de operadores SaaS.
-- Convites para funcionários sem conta prévia, auditoria de permissões e enforcement dos próximos módulos além de catálogo.
+- Auditoria de convites/permissões, proteção contra abuso distribuído e enforcement dos próximos módulos além de catálogo.
 - Testes ponta a ponta no navegador em ambiente completo com múltiplas empresas.
 - Baixa de estoque auditada, pedidos internos confirmados, conciliação e reversão de pagamentos manuais.
 - Upload de logotipos e banners, personalização avançada, contraste e acessibilidade.
